@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.Period;
+
 public class Persona {
     //Agregación == No Dependencia
 
@@ -19,5 +22,21 @@ public class Persona {
         this.numeroTlf       = numeroTlf;
         this.fechaNacimiento = fechaNacimiento;
         this.address         = address;
+    }
+
+    //Métodos
+    public int calculateAge(Fecha fechaNacimiento, Fecha fechaDiaHoy) {
+        if ( fechaDiaHoy.getAnyo() > fechaNacimiento.getAnyo() ) {
+            if ( fechaNacimiento.getMes() <= fechaDiaHoy.getMes()
+                    && fechaNacimiento.getDia() < fechaDiaHoy.getDia() ) {
+                return fechaDiaHoy.getAnyo() - fechaNacimiento.getAnyo() - 1;
+            }
+
+            if ( fechaNacimiento.getMes() >= fechaDiaHoy.getMes()
+                    && fechaNacimiento.getDia() >= fechaDiaHoy.getDia() ) {
+                return fechaDiaHoy.getAnyo() - fechaNacimiento.getAnyo();
+            }
+        }
+        return 0;
     }
 }
