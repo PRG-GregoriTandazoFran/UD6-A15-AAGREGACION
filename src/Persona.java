@@ -39,4 +39,8 @@ public class Persona {
         }
         return 0;
     }
+
+    public boolean esMayorEdad(Fecha fechaNacimiento, Fecha fechaDiaHoy){
+        return calculateAge( fechaNacimiento, fechaDiaHoy ) >= 18;
+    }
 }
