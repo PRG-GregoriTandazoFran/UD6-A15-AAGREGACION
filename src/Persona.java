@@ -40,7 +40,11 @@ public class Persona {
         return 0;
     }
 
-    public boolean esMayorEdad(Fecha fechaNacimiento, Fecha fechaDiaHoy){
-        return calculateAge( fechaNacimiento, fechaDiaHoy ) >= 18;
+    public boolean esMayorEdad(int edadPersona){
+        return edadPersona >= 18;
+    }
+
+    public boolean estaJubilado(int edadPersona){
+        return edadPersona >= 65;
     }
 }
