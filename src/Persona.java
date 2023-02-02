@@ -1,6 +1,3 @@
-import java.time.LocalDate;
-import java.time.Period;
-
 public class Persona {
     //Agregación == No Dependencia
 
@@ -25,26 +22,14 @@ public class Persona {
     }
 
     //Métodos
-    public int calculateAge(Fecha fechaNacimiento, Fecha fechaDiaHoy) {
-        if ( fechaDiaHoy.getAnyo() > fechaNacimiento.getAnyo() ) {
-            if ( fechaNacimiento.getMes() <= fechaDiaHoy.getMes()
-                    && fechaNacimiento.getDia() < fechaDiaHoy.getDia() ) {
-                return fechaDiaHoy.getAnyo() - fechaNacimiento.getAnyo() - 1;
-            }
 
-            if ( fechaNacimiento.getMes() >= fechaDiaHoy.getMes()
-                    && fechaNacimiento.getDia() >= fechaDiaHoy.getDia() ) {
-                return fechaDiaHoy.getAnyo() - fechaNacimiento.getAnyo();
-            }
-        }
-        return 0;
+    public boolean esMayorEdad(){
+        Fecha fecha = new Fecha("1/2/2023");
+        return fechaNacimiento.getAnyosTranscurridos( fecha  ) >= 18;
     }
 
-    public boolean esMayorEdad(int edadPersona){
-        return edadPersona >= 18;
-    }
-
-    public boolean estaJubilado(int edadPersona){
-        return edadPersona >= 65;
+    public boolean estaJubilado(){
+        Fecha fecha = new Fecha("1/2/2023");
+        return fecha.getAnyosTranscurridos( fechaNacimiento  ) >= 65;
     }
 }

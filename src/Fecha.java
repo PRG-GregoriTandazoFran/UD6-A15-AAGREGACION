@@ -339,4 +339,8 @@ class Fecha {
         }
         return 365;
     }
+
+    public int getAnyosTranscurridos(Fecha otraFecha) {
+        return otraFecha.anyo - this.anyo;
+    }
 }
